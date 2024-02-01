@@ -1,0 +1,19 @@
+void main() 
+{
+
+     ADCON1 = 0x0F;    //Configura o registrador ADCON1 para garantir que todas as portas analógicas sejam configuradas como entradas digitais.
+     TRISB  = 0xFE;    //Configura o registrador TRISB para definir a porta B0 como saída
+     PORTB  = 0xFE;    //Inicializa o PORTB com 0xFE, o que significa que todas as portas B são inicializadas como 1, exceto a porta B0, que é inicializada como 0.
+     // A porta utilizada foi a RB0.
+     
+     while(1)
+     {
+     
+             LATB0_bit = 0x01;
+             delay_ms(500);
+             LATB0_bit = 0x00;
+             delay_ms(500);
+     
+     }
+
+}
